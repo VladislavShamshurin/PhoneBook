@@ -1,4 +1,6 @@
-package ru.vlad.contacts;
+package ru.vlad.contacts.contacts;
+
+import ru.vlad.contacts.basic.BasicActionsBook;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -23,12 +25,12 @@ public class Person extends Contact {
     @Override
     public void editContact() throws IOException {
         System.out.println("Select a field (name, surname, birth, gender, number): ");
-        String field = MainLogic.bufferedReader.readLine();
+        String field = BasicActionsBook.bufferedReader.readLine();
         //field edit name, surname, number.
         switch (field.toLowerCase()) {
             case "name":
                 System.out.println("Enter name: ");
-                String newName = MainLogic.bufferedReader.readLine();
+                String newName = BasicActionsBook.bufferedReader.readLine();
                 setName(newName);
                 System.out.println("Saved");
                 System.out.println();
@@ -36,7 +38,7 @@ public class Person extends Contact {
                 break;
             case "surname":
                 System.out.println("Enter surname: ");
-                String newSurname = MainLogic.bufferedReader.readLine();
+                String newSurname = BasicActionsBook.bufferedReader.readLine();
                 setSurname(newSurname);
                 System.out.println("Saved");
                 System.out.println();
@@ -44,7 +46,7 @@ public class Person extends Contact {
                 break;
             case "number":
                 System.out.println("Enter number: ");
-                String newNumber = MainLogic.bufferedReader.readLine();
+                String newNumber = BasicActionsBook.bufferedReader.readLine();
                 setPhoneNumber(newNumber);
                 System.out.println("Saved");
                 System.out.println();
@@ -52,7 +54,7 @@ public class Person extends Contact {
                 break;
             case "birth":
                 System.out.println("Enter birth [YYYY-MM-dd]:");
-                String newBirth = MainLogic.bufferedReader.readLine();
+                String newBirth = BasicActionsBook.bufferedReader.readLine();
                 if (newBirth.equals("") || newBirth.length() < 9) {
                     System.out.println("Bad birth date!");
                     newBirth = "1000-10-10";
@@ -64,7 +66,7 @@ public class Person extends Contact {
                 break;
             case "gender":
                 System.out.println("Enter gender: ");
-                String newGender = MainLogic.bufferedReader.readLine().toUpperCase();
+                String newGender = BasicActionsBook.bufferedReader.readLine().toUpperCase();
                 if (!newGender.equals("M") && !newGender.equals("F")) {
                     System.out.println("Bad gender!");
                     newGender = "[no data]";
@@ -79,24 +81,24 @@ public class Person extends Contact {
 
     public static void addContact() throws IOException {
         System.out.println("Enter the name: ");
-        String perName = MainLogic.bufferedReader.readLine();
+        String perName = BasicActionsBook.bufferedReader.readLine();
         System.out.println("Enter the surname: ");
-        String perSurname = MainLogic.bufferedReader.readLine();
+        String perSurname = BasicActionsBook.bufferedReader.readLine();
         System.out.println("Enter the birth date [YYYY-MM-dd]:");
-        String perDate = MainLogic.bufferedReader.readLine();
+        String perDate = BasicActionsBook.bufferedReader.readLine();
         if (perDate.equals("") || perDate.length() < 9) {
             System.out.println("Bad birth date!");
             perDate = "1000-10-10";
         }
         System.out.println("Enter the gender (M, F): ");
-        String gender = MainLogic.bufferedReader.readLine().toUpperCase();
+        String gender = BasicActionsBook.bufferedReader.readLine().toUpperCase();
         if (!gender.equals("M") && !gender.equals("F")) {
             System.out.println("Bad gender!");
             gender = "[no data]";
         }
         System.out.println("Enter the number: ");
-        String perPhoneNumber = MainLogic.bufferedReader.readLine();
-        MainLogic.contacts.add(new Person(perPhoneNumber, perName, perSurname, perDate, gender));
+        String perPhoneNumber = BasicActionsBook.bufferedReader.readLine();
+        BasicActionsBook.contacts.add(new Person(perPhoneNumber, perName, perSurname, perDate, gender));
         System.out.println("The record added.");
         System.out.println();
     }

@@ -1,4 +1,8 @@
-package ru.vlad.contacts;
+package ru.vlad.contacts.basic;
+
+import ru.vlad.contacts.contacts.Contact;
+import ru.vlad.contacts.contacts.Organization;
+import ru.vlad.contacts.contacts.Person;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,9 +10,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainLogic {
+public class BasicActionsBook {
     public static final List<Contact> contacts = new ArrayList<>();
-    static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+    public static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     public void selectAction() {
         System.out.println("open phonebook.db");

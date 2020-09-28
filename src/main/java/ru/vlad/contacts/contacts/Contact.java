@@ -1,4 +1,4 @@
-package ru.vlad.contacts;
+package ru.vlad.contacts.contacts;
 
 import java.io.IOException;
 

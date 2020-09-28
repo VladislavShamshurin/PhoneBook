@@ -1,4 +1,6 @@
-package ru.vlad.contacts;
+package ru.vlad.contacts.contacts;
+
+import ru.vlad.contacts.basic.BasicActionsBook;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -17,23 +19,23 @@ public class Organization extends Contact {
 
    public static void addContact() throws IOException {
         System.out.println("Enter the organization name: ");
-        String orgName = MainLogic.bufferedReader.readLine();
+        String orgName = BasicActionsBook.bufferedReader.readLine();
         System.out.println("Enter the address: ");
-        String orgAddress = MainLogic.bufferedReader.readLine();
+        String orgAddress = BasicActionsBook.bufferedReader.readLine();
         System.out.println("Enter the number: ");
-        String orgNumber = MainLogic.bufferedReader.readLine();
-        MainLogic.contacts.add(new Organization(orgNumber, orgName, orgAddress));
+        String orgNumber = BasicActionsBook.bufferedReader.readLine();
+        BasicActionsBook.contacts.add(new Organization(orgNumber, orgName, orgAddress));
         System.out.println("The record added.\n");
     }
 
     @Override
     public void editContact() throws IOException {
         System.out.println("Select a field (name, address, number): ");
-        String field = MainLogic.bufferedReader.readLine();
+        String field = BasicActionsBook.bufferedReader.readLine();
         switch (field.toLowerCase()) {
             case "name":
                 System.out.println("Enter name: ");
-                String newName = MainLogic.bufferedReader.readLine();
+                String newName = BasicActionsBook.bufferedReader.readLine();
                 setName(newName);
                 System.out.println("Saved");
                 setLastEdit(LocalDateTime.now());
@@ -41,7 +43,7 @@ public class Organization extends Contact {
                 break;
             case "address":
                 System.out.println("Enter address: ");
-                String newAddress = MainLogic.bufferedReader.readLine();
+                String newAddress = BasicActionsBook.bufferedReader.readLine();
                 setAddress(newAddress);
                 System.out.println("Saved");
                 setLastEdit(LocalDateTime.now());
@@ -49,7 +51,7 @@ public class Organization extends Contact {
                 break;
             case "number":
                 System.out.println("Enter number: ");
-                String newNumber = MainLogic.bufferedReader.readLine();
+                String newNumber = BasicActionsBook.bufferedReader.readLine();
                 setPhoneNumber(newNumber);
                 System.out.println("Saved");
                 setLastEdit(LocalDateTime.now());
