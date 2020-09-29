@@ -15,11 +15,11 @@ public class BasicActionsBook {
     public static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
     public void selectAction() {
-        System.out.println("open phonebook.db");
+        printTxt("open phonebook.db");
         boolean isExit = false;
         while(!isExit) {
             try {
-                System.out.println("[menu] Enter action (add, list, search, count, exit): ");
+                printTxt("[menu] Enter action (add, list, search, count, exit): ");
                 String answer = bufferedReader.readLine();
                 switch (answer.toLowerCase()) {
                     case "add": addContact(); break;
